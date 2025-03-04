@@ -172,14 +172,16 @@ header {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease;
-    visibility: visible !important; /* Ensure visibility */
+    visibility: visible !important;
+    /* Ensure visibility */
 }
 
 .content {
     max-width: 600px;
     padding: 3rem;
     padding-left: 2rem;
-    visibility: visible !important; /* Ensure visibility */
+    visibility: visible !important;
+    /* Ensure visibility */
 }
 
 .content h1 {
@@ -190,7 +192,8 @@ header {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease;
-    visibility: visible !important; /* Ensure visibility */
+    visibility: visible !important;
+    /* Ensure visibility */
 }
 
 .content p {
@@ -202,7 +205,8 @@ header {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease;
-    visibility: visible !important; /* Ensure visibility */
+    visibility: visible !important;
+    /* Ensure visibility */
 }
 
 .signature {
@@ -215,7 +219,8 @@ header {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease;
-    visibility: visible !important; /* Ensure visibility */
+    visibility: visible !important;
+    /* Ensure visibility */
 }
 
 #signature-img {
@@ -269,7 +274,8 @@ header {
 }
 
 /* Skills Section */
-.skills-section, .projects-section {
+.skills-section,
+.projects-section {
     flex: 1;
     background-color: white;
     border-radius: 16px;
@@ -281,7 +287,8 @@ header {
     transition: all 0.8s ease;
 }
 
-.skills-section:hover, .projects-section:hover {
+.skills-section:hover,
+.projects-section:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
@@ -596,21 +603,25 @@ header {
 /* Media queries for responsive design */
 /* Large devices (desktops) */
 @media (max-width: 1200px) {
-    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+
+    .container,
+    .skills-projects-wrapper,
+    .container-about-section,
+    .footer-content {
         max-width: 960px;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
-    
+
     .profile-image {
         width: 450px;
         height: 450px;
     }
-    
+
     .heading {
         font-size: 4rem;
     }
-    
+
     #signature-img {
         width: 350px;
     }
@@ -618,32 +629,38 @@ header {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 992px) {
-    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+
+    .container,
+    .skills-projects-wrapper,
+    .container-about-section,
+    .footer-content {
         max-width: 720px;
     }
-    
+
     .skills-projects-container {
         flex-direction: column;
         gap: 2.5rem;
     }
-    
-    .skills-section, .projects-section {
+
+    .skills-section,
+    .projects-section {
         width: 100%;
     }
-    
+
     .heading {
         font-size: 3.5rem;
     }
-    
+
     .profile-image {
         width: 400px;
         height: 400px;
     }
-    
-    .skills-grid, .projects-grid {
+
+    .skills-grid,
+    .projects-grid {
         grid-template-columns: repeat(1, 1fr);
     }
-    
+
     .text-content {
         max-width: 50%;
     }
@@ -651,12 +668,16 @@ header {
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 768px) {
-    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+
+    .container,
+    .skills-projects-wrapper,
+    .container-about-section,
+    .footer-content {
         max-width: 540px;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
     .main-content {
         flex-direction: column;
         align-items: center;
@@ -693,67 +714,69 @@ header {
     .location {
         align-self: center;
     }
-    
+
     .container-about-section {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .content {
         padding: 1.5rem;
         text-align: center;
         max-width: 100%;
     }
-    
-    .content h1, .content p {
+
+    .content h1,
+    .content p {
         text-align: center;
     }
-    
+
     .signature {
         align-items: center;
         margin-bottom: 1rem;
     }
-    
+
     #signature-img {
         width: 300px;
         height: 200px;
         object-position: center;
         margin-right: 0;
     }
-    
+
     .section-heading {
         font-size: 1.8rem;
     }
-    
+
     .section-title h3 {
         font-size: 1.5rem;
     }
-    
-    .skills-grid, .projects-grid {
+
+    .skills-grid,
+    .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .project-image {
         height: 160px;
     }
-    
+
     .skill-card {
         padding: 1rem;
     }
-    
+
     .skill-icon {
         width: 50px;
         height: 50px;
     }
-    
+
     .skill-icon i {
         font-size: 1.5rem;
     }
-    
+
     header {
         margin-bottom: 2rem;
     }
-    
+
     .content-wrapper {
         padding-top: 30px;
     }
@@ -761,66 +784,71 @@ header {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 576px) {
-    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+
+    .container,
+    .skills-projects-wrapper,
+    .container-about-section,
+    .footer-content {
         padding-left: 0.8rem;
         padding-right: 0.8rem;
     }
-    
+
     .heading {
         font-size: 2.5rem;
     }
-    
+
     .logo {
         font-size: 1.2rem;
     }
-    
+
     .linkedin-btn {
         font-size: 1rem;
     }
-    
+
     .description {
         font-size: 1rem;
     }
-    
+
     .profile-image {
         width: 280px;
         height: 280px;
     }
-    
-    .skills-section, .projects-section {
+
+    .skills-section,
+    .projects-section {
         padding: 1.5rem;
     }
-    
+
     .project-tags {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .skill-card {
         gap: 0.8rem;
     }
-    
+
     .section-title {
         margin-bottom: 1.5rem;
     }
-    
+
     .footer-social {
         gap: 1rem;
     }
-    
+
     #signature-img {
         width: 250px;
         height: 180px;
     }
-    
+
     .content {
         padding: 1.2rem;
     }
-    
+
     .section-heading {
         font-size: 1.6rem;
     }
-    
+
     .content h1 {
         font-size: 1.3rem;
     }
@@ -832,55 +860,78 @@ header {
         width: 240px;
         height: 240px;
     }
-    
+
     .heading {
         font-size: 2.2rem;
     }
-    
+
     .section-title h3 {
         font-size: 1.3rem;
     }
-    
+
     .title-icon {
         font-size: 1.5rem;
     }
-    
+
     .skill-icon {
         width: 45px;
         height: 45px;
     }
-    
+
     .skill-icon i {
         font-size: 1.3rem;
     }
-    
+
     .skill-info h4 {
         font-size: 1rem;
     }
-    
+
     .project-info h4 {
         font-size: 1.1rem;
     }
-    
+
     .project-info p {
         font-size: 0.9rem;
     }
-    
+
     .project-overlay span {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
-    
+
     .footer-logo {
         font-size: 1.2rem;
     }
-    
+
     .social-icon {
         font-size: 1.3rem;
     }
-    
+
     #signature-img {
         width: 220px;
         height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .location {
+        font-size: 0.9rem;
+        /* Slightly smaller font on mobile */
+        margin-bottom: 0.75rem;
+        justify-content: center;
+        transform: none;
+        /* Remove horizontal translation on mobile */
+    }
+
+    .location i {
+        /* If using an icon */
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .location {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
     }
 }
