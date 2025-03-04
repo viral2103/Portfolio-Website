@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -162,6 +163,7 @@ header {
 
 /* About section styling */
 .container-about-section {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -226,6 +228,7 @@ header {
 
 /* Skills and Projects container styling */
 .skills-projects-wrapper {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem 4rem 2rem;
@@ -534,6 +537,7 @@ header {
 }
 
 .footer-content {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -590,7 +594,34 @@ header {
 }
 
 /* Media queries for responsive design */
+/* Large devices (desktops) */
+@media (max-width: 1200px) {
+    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+        max-width: 960px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .profile-image {
+        width: 450px;
+        height: 450px;
+    }
+    
+    .heading {
+        font-size: 4rem;
+    }
+    
+    #signature-img {
+        width: 350px;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
 @media (max-width: 992px) {
+    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+        max-width: 720px;
+    }
+    
     .skills-projects-container {
         flex-direction: column;
         gap: 2.5rem;
@@ -599,9 +630,33 @@ header {
     .skills-section, .projects-section {
         width: 100%;
     }
+    
+    .heading {
+        font-size: 3.5rem;
+    }
+    
+    .profile-image {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .skills-grid, .projects-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .text-content {
+        max-width: 50%;
+    }
 }
 
+/* Small devices (landscape phones, less than 768px) */
 @media (max-width: 768px) {
+    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+        max-width: 540px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
     .main-content {
         flex-direction: column;
         align-items: center;
@@ -612,6 +667,7 @@ header {
         max-width: 100%;
         margin-top: 2rem;
         order: 2;
+        padding: 0 1rem;
     }
 
     .heading {
@@ -646,6 +702,7 @@ header {
     .content {
         padding: 1.5rem;
         text-align: center;
+        max-width: 100%;
     }
     
     .content h1, .content p {
@@ -658,7 +715,10 @@ header {
     }
     
     #signature-img {
+        width: 300px;
+        height: 200px;
         object-position: center;
+        margin-right: 0;
     }
     
     .section-heading {
@@ -689,12 +749,37 @@ header {
     .skill-icon i {
         font-size: 1.5rem;
     }
+    
+    header {
+        margin-bottom: 2rem;
+    }
+    
+    .content-wrapper {
+        padding-top: 30px;
+    }
 }
 
-@media (max-width: 480px) {
-    .project-tags {
-        flex-direction: column;
-        align-items: flex-start;
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+    .container, .skills-projects-wrapper, .container-about-section, .footer-content {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    
+    .heading {
+        font-size: 2.5rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .linkedin-btn {
+        font-size: 1rem;
+    }
+    
+    .description {
+        font-size: 1rem;
     }
     
     .profile-image {
@@ -702,8 +787,13 @@ header {
         height: 280px;
     }
     
-    .heading {
-        font-size: 2.5rem;
+    .skills-section, .projects-section {
+        padding: 1.5rem;
+    }
+    
+    .project-tags {
+        flex-direction: column;
+        align-items: flex-start;
     }
     
     .skill-card {
@@ -716,5 +806,81 @@ header {
     
     .footer-social {
         gap: 1rem;
+    }
+    
+    #signature-img {
+        width: 250px;
+        height: 180px;
+    }
+    
+    .content {
+        padding: 1.2rem;
+    }
+    
+    .section-heading {
+        font-size: 1.6rem;
+    }
+    
+    .content h1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 380px) {
+    .profile-image {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .heading {
+        font-size: 2.2rem;
+    }
+    
+    .section-title h3 {
+        font-size: 1.3rem;
+    }
+    
+    .title-icon {
+        font-size: 1.5rem;
+    }
+    
+    .skill-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .skill-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .skill-info h4 {
+        font-size: 1rem;
+    }
+    
+    .project-info h4 {
+        font-size: 1.1rem;
+    }
+    
+    .project-info p {
+        font-size: 0.9rem;
+    }
+    
+    .project-overlay span {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+    
+    .social-icon {
+        font-size: 1.3rem;
+    }
+    
+    #signature-img {
+        width: 220px;
+        height: 160px;
     }
 }
