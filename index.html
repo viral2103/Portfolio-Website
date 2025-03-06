@@ -10,6 +10,213 @@
     <script src="script.js"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .grid-container {
+            padding-top: 30px;
+            padding-left: 10rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 120vw;
+            height: 100vh;
+            max-width: 1400px;
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+
+
+        }
+
+        .grid-item {
+            margin-bottom: 30px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            /* Start with 0 opacity */
+            transform: translateY(20px);
+            /* Start slightly below final position */
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+            animation-duration: 2.8s;
+        }
+
+          /* Animation for items coming from bottom */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Animation for items coming from top */
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Column 1 items slide up */
+        .excel {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            animation-name: slideUp;
+            animation-delay: 0.2s;
+        }
+        
+        .figma {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+            animation-name: slideUp;
+            animation-delay: 0.4s;
+        }
+        
+        /* Column 2 items slide down */
+        .python {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+            animation-name: slideDown;
+            animation-delay: 0.3s;
+        }
+        
+        .graphic-design {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            animation-name: slideDown;
+            animation-delay: 0.5s;
+        }
+        
+        /* Column 3 items slide up */
+        .mysql {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            animation-name: slideUp;
+            animation-delay: 0.2s;
+        }
+        
+        .data-visualization {
+            grid-column: 3 / 4;
+            grid-row: 2 / 4;
+            animation-name: slideUp;
+            animation-delay: 0.4s;
+        }
+        
+        .grid-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        /* Subtle hover effect for images */
+        .grid-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .overlay-text {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .data-visualization .overlay-text,
+        .graphic-design .overlay-text {
+            font-size: 1.7rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+                height: 95vh;
+                width: 95vw;
+            }
+            
+            .excel, .mysql, .python, .figma, .data-visualization, .graphic-design {
+                grid-column: auto;
+                grid-row: auto;
+            }
+            
+            .overlay-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                height: 95vh;
+                width: 92vw;
+            }
+            
+            .grid-item {
+                height: calc(95vh / 6);
+            }
+            
+            .overlay-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        .Studio {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.2rem;
+            /* opacity: 0; */
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .Studio:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            border-radius: 2px;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,10 +282,69 @@
                 information technology and social media in a dynamic and challenging role.</p>
 
             <div class="signature">
-                <img src="signature.png" alt="Signature" id="signature-img">
+                <img src="images/signature.png" alt="Signature" id="signature-img">
             </div>
         </div>
     </div>
+
+
+    <h2 class="Studio">Tech & Design Studio</h2>
+    <p
+        style="text-align: center; font-size: 16px; color: #333; font-family: Arial, sans-serif; margin: 20px; padding: 10px;">
+        <u>Click on an image to open relevant projects related to that skill</u>
+    </p>
+
+
+    <div class="grid-container">
+        <div class="grid-item excel" onclick="openInNewTab('excel.html')">
+            <img src="Office Workspace with Team Collaboration.jpeg" alt="Excel">
+            <div class="overlay">
+                <div class="overlay-text">EXCEL</div>
+            </div>
+        </div>
+
+        <div class="grid-item python" onclick="openInNewTab('python.html')">
+            <img src="Coding on Laptop.jpeg" alt="Python">
+            <div class="overlay">
+                <div class="overlay-text">PYTHON</div>
+            </div>
+        </div>
+
+        <div class="grid-item mysql" onclick="openInNewTab('mysql.html')">
+            <img src="Digital Binary Code Visualization.jpeg" alt="MySQL">
+            <div class="overlay">
+                <div class="overlay-text">MySQL</div>
+            </div>
+        </div>
+
+        <div class="grid-item figma" onclick="openInNewTab('figma.html')">
+            <img src="Gradient Glass Cube.jpeg" alt="Figma">
+            <div class="overlay">
+                <div class="overlay-text">FIGMA</div>
+            </div>
+        </div>
+
+        <div class="grid-item graphic-design" onclick="openInNewTab('graphic-design.html')">
+            <img src="Vibrant Digital Artists Studio.jpeg" alt="Graphic Design">
+            <div class="overlay">
+                <div class="overlay-text">GRAPHIC<br>DESIGN</div>
+            </div>
+        </div>
+
+        <div class="grid-item data-visualization" onclick="openInNewTab('data-visualization.html')">
+            <img src="Man Presenting Data.jpeg" alt="Data Visualization">
+            <div class="overlay">
+                <div class="overlay-text">DATA<br>VISUALIZATION</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInNewTab(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+
 
     <div class="skills-projects-wrapper">
         <h2 class="section-heading">My Expertise</h2>
