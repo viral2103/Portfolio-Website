@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viral Shah | Data Analyst</title>
-    <link rel="icon" type="image/png" href="sparkle (1).png">
+    <link rel="icon" type="image/png" href="images/sparkle (1).png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <!-- Font Awesome for icons -->
@@ -46,30 +46,32 @@
             animation-duration: 2.8s;
         }
 
-          /* Animation for items coming from bottom */
+        /* Animation for items coming from bottom */
         @keyframes slideUp {
             0% {
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* Animation for items coming from top */
         @keyframes slideDown {
             0% {
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* Column 1 items slide up */
         .excel {
             grid-column: 1 / 2;
@@ -77,14 +79,14 @@
             animation-name: slideUp;
             animation-delay: 0.2s;
         }
-        
+
         .figma {
             grid-column: 1 / 2;
             grid-row: 2 / 4;
             animation-name: slideUp;
             animation-delay: 0.4s;
         }
-        
+
         /* Column 2 items slide down */
         .python {
             grid-column: 2 / 3;
@@ -92,14 +94,14 @@
             animation-name: slideDown;
             animation-delay: 0.3s;
         }
-        
+
         .graphic-design {
             grid-column: 2 / 3;
             grid-row: 3 / 4;
             animation-name: slideDown;
             animation-delay: 0.5s;
         }
-        
+
         /* Column 3 items slide up */
         .mysql {
             grid-column: 3 / 4;
@@ -107,18 +109,18 @@
             animation-name: slideUp;
             animation-delay: 0.2s;
         }
-        
+
         .data-visualization {
             grid-column: 3 / 4;
             grid-row: 2 / 4;
             animation-name: slideUp;
             animation-delay: 0.4s;
         }
-        
+
         .grid-item:hover {
             transform: scale(1.02);
         }
-        
+
         .grid-item img {
             width: 100%;
             height: 100%;
@@ -126,13 +128,13 @@
             display: block;
             transition: transform 0.3s ease, filter 0.3s ease;
         }
-        
+
         /* Subtle hover effect for images */
         .grid-item:hover img {
             transform: scale(1.05);
             filter: brightness(1.1);
         }
-        
+
         .overlay {
             position: absolute;
             top: 0;
@@ -144,7 +146,7 @@
             align-items: center;
             background-color: rgba(0, 0, 0, 0.3);
         }
-        
+
         .overlay-text {
             color: white;
             font-size: 2rem;
@@ -154,40 +156,45 @@
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .data-visualization .overlay-text,
         .graphic-design .overlay-text {
             font-size: 1.7rem;
         }
-        
+
         @media (max-width: 768px) {
             .grid-container {
                 grid-template-columns: 1fr 1fr;
                 height: 95vh;
                 width: 95vw;
             }
-            
-            .excel, .mysql, .python, .figma, .data-visualization, .graphic-design {
+
+            .excel,
+            .mysql,
+            .python,
+            .figma,
+            .data-visualization,
+            .graphic-design {
                 grid-column: auto;
                 grid-row: auto;
             }
-            
+
             .overlay-text {
                 font-size: 1.5rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .grid-container {
                 grid-template-columns: 1fr;
                 height: 95vh;
                 width: 92vw;
             }
-            
+
             .grid-item {
                 height: calc(95vh / 6);
             }
-            
+
             .overlay-text {
                 font-size: 1.2rem;
             }
@@ -256,13 +263,12 @@
 
                 <div class="profile-container">
                     <div class="profile-image">
-                        <img src="viral2.jpg" alt="Viral Shah" />
+                        <img src="images/viral2.jpg" alt="Viral Shah" />
                     </div>
                     <div class="gradient-circle"></div>
                 </div>
             </div>
         </div>
-
         <div class="bottom-linkedin">
             <a href="https://www.linkedin.com/in/viral-shah-80388228b/" class="linkedin-btn" target="_blank">
                 <span>LinkedIn</span>
@@ -271,21 +277,6 @@
         </div>
     </div>
 
-    <div class="container-about-section">
-        <div class="content">
-            <h1>A little about me</h1>
-
-            <p class="info">Thanks for stopping by. I'm a Enthusiastic college student with exceptional skills in both
-                team-based and independent work environments.
-                Demonstrates a strong work ethic and excellent organizational abilities. Eager to leverage above-average
-                skills in
-                information technology and social media in a dynamic and challenging role.</p>
-
-            <div class="signature">
-                <img src="signature.png" alt="Signature" id="signature-img">
-            </div>
-        </div>
-    </div>
 
 
     <h2 class="Studio">Tech & Design Studio</h2>
@@ -457,7 +448,7 @@
 
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="project3.jpg" alt="Predictive Analysis Project">
+                            <img src="images/project3.jpg" alt="Predictive Analysis Project">
                             <div class="project-overlay">
                                 <a href="https://github.com/viral2103/Stock-Market-Analysis.git" target="_blank"
                                     rel="noopener noreferrer"><span>View
@@ -484,7 +475,7 @@
 
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="image.png" alt="Customer Segmentation Project">
+                            <img src="images/image.png" alt="Customer Segmentation Project">
                             <div class="project-overlay">
                                 <a href="https://github.com/viral2103/Restaurants-Data-Analysis.git" target="_blank"
                                     rel="noopener noreferrer"><span>View
@@ -507,7 +498,7 @@
 
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="project1.jpg" alt="Sales Dashboard Project">
+                            <img src="images/project1.jpg" alt="Sales Dashboard Project">
                             <div class="project-overlay">
                                 <a href="https://github.com/viral2103/Diwali-sales-analysis.git" target="_blank"
                                     rel="noopener noreferrer"><span>View
