@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Tools</title>
+    <link rel="icon" type="image/png" href="images/sparkle (1).png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f0ee;
+            color: #1a1a1a;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-weight: bold;
+        }
+
+        .star {
+            font-size: 1.4rem;
+            transform: rotate(45deg);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            opacity: 0.7;
+            transform: translateX(-5px);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #555;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .tool-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tool-card:hover .tool-image img {
+            transform: scale(1.1);
+        }
+
+        .tool-content {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .tool-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-features h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #444;
+        }
+
+        .tool-features ul {
+            list-style-type: none;
+            padding-left: 0.5rem;
+        }
+
+        .tool-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .tool-features li:before {
+            content: "•";
+            color: #4a6cf7;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-tags span {
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(45deg, rgba(74, 108, 247, 0.1), rgba(240, 144, 217, 0.1));
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a6cf7;
+            transition: all 0.3s ease;
+        }
+
+        .tool-tags span:hover {
+            background: linear-gradient(45deg, rgba(74, 108, 247, 0.2), rgba(240, 144, 217, 0.2));
+            transform: translateY(-2px);
+        }
+
+        .tool-footer {
+            margin-top: auto;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .view-projects {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            width: 100%;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .view-projects:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #4a6cf7;
+            transform: translateY(-3px);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .back-btn {
+                font-size: 1rem;
+            }
+
+            .tool-title {
+                font-size: 1.2rem;
+            }
+
+            .tool-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="star">※</span>
+                <span>VIRAL SHAH ™</span>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </header>
+
+        <h1 class="page-title">Data Visualization Tools</h1>
+        <p class="subtitle">Explore powerful data visualization tools and techniques for transforming complex data into
+            meaningful insights</p>
+
+        <div class="tools-grid">
+            <!-- Tool 1: Matplotlib -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="matplotlib.png"
+                        alt="Matplotlib Visualization">
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Matplotlib</h3>
+                    <p class="tool-description">
+                        Matplotlib is a comprehensive library for creating static, animated, and interactive
+                        visualizations in Python.
+                        It provides a MATLAB-like interface and can produce publication-quality figures in various
+                        formats.
+                    </p>
+                    <div class="tool-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Complete control over plot elements (lines, fonts, axes, etc.)</li>
+                            <li>Support for various plot types: line plots, scatter plots, bar charts, histograms, etc.
+                            </li>
+                            <li>Highly customizable with extensive styling options</li>
+                            <li>Integration with NumPy and pandas for data handling</li>
+                            <li>Output in various formats (PNG, PDF, SVG, PGF, etc.)</li>
+                        </ul>
+                    </div>
+                    <div class="tool-tags">
+                        <span>Python</span>
+                        <span>Data Science</span>
+                        <span>Statistical Graphics</span>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="matplotlib.html" class="view-projects" target="_blank">
+                            View Projects
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 2: Microsoft Power BI -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="Power_BI_logo.svg.png"
+                        alt="Power BI Dashboard">
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Microsoft Power BI</h3>
+                    <p class="tool-description">
+                        Power BI is a business analytics service by Microsoft that provides interactive visualizations
+                        and business intelligence
+                        capabilities with an interface simple enough for end users to create their own reports and
+                        dashboards.
+                    </p>
+                    <div class="tool-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Drag-and-drop interface for creating interactive dashboards</li>
+                            <li>Data Modeling with relationships and DAX formulas</li>
+                            <li>Connect to hundreds of data sources</li>
+                            <li>Real-time data analysis and visualization</li>
+                            <li>AI-powered insights and natural language queries</li>
+                            <li>Secure sharing and collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="tool-tags">
+                        <span>Business Intelligence</span>
+                        <span>Interactive Dashboards</span>
+                        <span>Data Modeling</span>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="powerbi.html" class="view-projects" target="_blank">
+                            View Projects
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 3: Seaborn -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="seaborn.png" alt="Seaborn Visualization">
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Seaborn</h3>
+                    <p class="tool-description">
+                        Seaborn is a Python data visualization library based on matplotlib that provides a high-level
+                        interface for drawing
+                        attractive and informative statistical graphics. It's specifically designed for statistical data
+                        visualization.
+                    </p>
+                    <div class="tool-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Built-in themes for elegant, attractive visualizations</li>
+                            <li>Advanced statistical plot types (violin plots, swarm plots, etc.)</li>
+                            <li>Automatic estimation and plotting of linear regressions</li>
+                            <li>Built-in support for visualizing categorical variables</li>
+                            <li>Handles complex datasets with pandas integration</li>
+                            <li>Multi-plot grids for exploring relationships between variables</li>
+                        </ul>
+                    </div>
+                    <div class="tool-tags">
+                        <span>Python</span>
+                        <span>Statistical Analysis</span>
+                        <span>Advanced Plotting</span>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="seaborn.html" class="view-projects" target="_blank">
+                            View Projects
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="star">※</span>
+                <span>VIRAL SHAH ™</span>
+
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/viral-shah-80388228b/" class="social-icon" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/viral2103" class="social-icon" target="_blank"><i
+                        class="fab fa-github"></i></a>
+                <a href="mailto:shahviral500@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 Viral Shah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carousel functionality
+            const slider = document.getElementById('projectsSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+
+            let currentIndex = 0;
+            let cardWidth;
+            let cardsPerView;
+            let totalCards;
+            let totalSlides;
+
+            // Calculate how many cards can be shown at once based on screen width
+            function calculateCardsPerView() {
+                if (window.innerWidth >= 992) {
+                    return 3; // Desktop: show 3 cards
+                } else if (window.innerWidth >= 768) {
+                    return 2; // Tablet: show 2 cards
+                } else {
+                    return 1; // Mobile: show 1 card
+                }
+            }
+
+            // Initialize carousel settings
+            function initCarousel() {
+                const cards = slider.querySelectorAll('.project-card');
+                totalCards = cards.length;
+                cardsPerView = calculateCardsPerView();
+
+                // Calculate card width including gap
+                const containerWidth = slider.parentElement.clientWidth;
+                const gapWidth = 2.5 * 16; // 2.5rem gap in pixels
+                cardWidth = (containerWidth - (gapWidth * (cardsPerView - 1))) / cardsPerView;
+
+                // Set card width
+                cards.forEach(card => {
+                    card.style.flex = `0 0 ${cardWidth}px`;
+                });
+
+                // Calculate total number of slides
+                totalSlides = Math.ceil((totalCards - cardsPerView) / cardsPerView) + 1;
+
+                // Generate dots
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.dataset.slide = i;
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+
+                // Set initial state
+                updateCarouselState();
+            }
+
+            // Update carousel buttons state
+            function updateCarouselState() {
+                // Enable/disable buttons
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === totalSlides - 1;
+
+                // Update dot indicators
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                const translateX = index * cardsPerView * (cardWidth + 40); // 40px is approximately 2.5rem
+                slider.style.transform = `translateX(-${translateX}px)`;
+                updateCarouselState();
+            }
+
+            // Carousel navigation
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    goToSlide(currentIndex + 1);
+                }
+            });
+
+            // Initialize on page load
+            initCarousel();
+
+            // Reinitialize on window resize
+            window.addEventListener('resize', () => {
+                currentIndex = 0; // Reset to first slide on resize
+                initCarousel();
+                goToSlide(0);
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Add click event to project images
+            const projectImages = document.querySelectorAll('.project-image');
+            projectImages.forEach(image => {
+                image.addEventListener('click', function () {
+                    const link = this.getAttribute('onclick').replace("window.open('", "").replace("', '_blank')", "");
+                    window.open(link, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
