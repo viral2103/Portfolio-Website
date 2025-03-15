@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Shah | MySQL Projects</title>
+    <link rel="icon" type="image/png" href="images/sparkle (1).png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f0ee;
+            color: #1a1a1a;
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-weight: bold;
+        }
+
+        .star {
+            font-size: 1.4rem;
+            transform: rotate(45deg);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            opacity: 0.7;
+            transform: translateX(-5px);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #555;
+        }
+
+        /* Carousel Styling */
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            overflow: hidden;
+        }
+
+        .projects-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            flex: 0 0 calc(33.333% - 1.67rem);
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-width: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .carousel-btn {
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.2);
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 108, 247, 0.3);
+        }
+
+        .carousel-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            transform: scale(1.2);
+        }
+
+        .project-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-overlay span {
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .project-overlay span:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags span {
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(45deg, rgba(74, 108, 247, 0.1), rgba(240, 144, 217, 0.1));
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a6cf7;
+            transition: all 0.3s ease;
+        }
+
+        .project-tags span:hover {
+            background: linear-gradient(45deg, rgba(74, 108, 247, 0.2), rgba(240, 144, 217, 0.2));
+            transform: translateY(-2px);
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1.2rem;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            color: #888;
+            flex-shrink: 0;
+        }
+
+        .view-project {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .view-project:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #4a6cf7, #f090d9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #4a6cf7;
+            transform: translateY(-3px);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Fixed cards equal height and alignment */
+        .project-card {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: relative;
+            padding-bottom: 4.5rem;
+            /* Space for footer */
+        }
+
+        .project-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.2rem 1.8rem;
+            background-color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .project-card {
+                flex: 0 0 calc(50% - 1.25rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .project-card {
+                flex: 0 0 100%;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .project-footer {
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .back-btn {
+                font-size: 1rem;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .view-project {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .project-footer {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="star">※</span>
+                <span>VIRAL SHAH ™</span>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </header>
+
+        <h1 class="page-title">MySQL Projects</h1>
+        <p class="subtitle">Explore my database design, optimization, and analysis projects using MySQL</p>
+
+        <div class="carousel-container">
+            <div class="projects-slider" id="projectsSlider">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image"
+                        onclick="window.open('https://github.com/viral2103/Comprehensive-Analysis-of-Heart-Attack-Patients-with-Multi-Disease-Conditions.git', '_blank')">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1470&auto=format&fit=crop"
+                            alt="Heart Attack Analysis Project">
+                        <div class="project-overlay">
+                            <span>View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Heart Attack Patient Analysis</h3>
+                        <p class="project-description">
+                            A comprehensive analysis of heart attack patient data using MySQL for data manipulation and
+                            statistical analysis. Features risk factor identification, demographic analysis, and
+                            treatment outcome correlations.
+                        </p>
+                        <div class="project-tags">
+                            <span>Data Analysis</span>
+                            <span>Healthcare</span>
+                            <span>Statistical Queries</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-date">January 2025</div>
+                            <a href="https://github.com/viral2103/Comprehensive-Analysis-of-Heart-Attack-Patients-with-Multi-Disease-Conditions.git"
+                                class="view-project" target="_blank">
+                                View Details
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image"
+                        onclick="window.open('https://github.com/viral2103/Financial-Company-Revenue-Analysis.git', '_blank')">
+                        <img src="financial.avif" alt="E-Commerce Database Project">
+                        <div class="project-overlay">
+                            <span>View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Financial Company Revenue Analysis</h3>
+                        <p class="project-description">
+                            A financial company revenue analysis involves evaluating the company's income streams,
+                            including interest, fees, investments, and other financial services. The analysis helps
+                            assess profitability, growth trends, and operational efficiency, guiding strategic decisions
+                            and forecasting future performance.
+                        </p>
+                        <div class="project-tags">
+                            <span>Growth Trends</span>
+                            <!-- <span>Stored Procedures</span>
+                            <span>Triggers</span> -->
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-date">January 2025</div>
+                            <a href="https://github.com/viral2103/Financial-Company-Revenue-Analysis.git"
+                                class="view-project" target="_blank">
+                                View Details
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image"
+                        onclick="window.open('https://github.com/viral2103/Coffee-Shop-Data-Analysis.git', '_blank')">
+                        <img src="coffee.avif"
+                            alt="Customer Segmentation Analysis">
+                        <div class="project-overlay">
+                            <span>View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Coffee Shop Data Analysis</h3>
+                        <p class="project-description">
+                            Coffee data analysis involves examining data related to coffee consumption, production, and
+                            trends to uncover insights about customer preferences, market dynamics, and sustainability.
+                            It can include factors such as sales data, geographic distribution, pricing, and
+                            environmental impacts, helping businesses and researchers make informed decisions.
+                        </p>
+                        <div class="project-tags">
+                            <span>Products selling trends</span>
+                            <span>Customer Analytics</span>
+                            <!-- <span>Advanced Queries</span> -->
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-date">December 2024</div>
+                            <a href="https://github.com/viral2103/Coffee-Shop-Data-Analysis.git" class="view-project"
+                                target="_blank">
+                                View Details
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <!-- <div class="project-card">
+                    <div class="project-image"
+                        onclick="window.open('https://github.com/viral2103/Hospital-Management-MySQL', '_blank')">
+                        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?q=80&w=1470&auto=format&fit=crop"
+                            alt="Hospital Management System">
+                        <div class="project-overlay">
+                            <span>View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hospital Management System</h3>
+                        <p class="project-description">
+                            A comprehensive hospital database system with patient records, appointment scheduling, 
+                            staff management, and billing modules. Includes complex stored procedures for patient 
+                            workflow and performance analytics for healthcare providers.
+                        </p>
+                        <div class="project-tags">
+                            <span>Healthcare</span>
+                            <span>Transaction Processing</span>
+                            <span>User Management</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-date">February 2025</div>
+                            <a href="https://github.com/viral2103/Hospital-Management-MySQL" class="view-project"
+                                target="_blank">
+                                View Details
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Project 5 -->
+                <!-- <div class="project-card">
+                    <div class="project-image"
+                        onclick="window.open('https://github.com/viral2103/Supply-Chain-Analytics-MySQL', '_blank')">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1470&auto=format&fit=crop"
+                            alt="Supply Chain Analytics">
+                        <div class="project-overlay">
+                            <span>View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Supply Chain Analytics System</h3>
+                        <p class="project-description">
+                            An end-to-end supply chain analytics solution with MySQL. Features real-time inventory tracking, 
+                            supplier performance metrics, lead time analysis, and predictive models for stock 
+                            optimization using stored procedures and views.
+                        </p>
+                        <div class="project-tags">
+                            <span>Supply Chain</span>
+                            <span>Analytical Functions</span>
+                            <span>Optimization</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-date">October 2024</div>
+                            <a href="https://github.com/viral2103/Supply-Chain-Analytics-MySQL" class="view-project"
+                                target="_blank">
+                                View Details
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Project 6 -->
+                <!-- <div class="project-card">
+                    <div class="project-image"
+                        onclick="window.open('https://github.com/viral2103/Financial-Data-Warehouse-MySQL', '_blank')">
+                        <img src="https://images.unsplash.com/photo-1565514020179-026b92b2d024?q=80&w=1470&auto=format&fit=crop"
+                            alt="Financial Data Warehouse">
+                        <div class="project-overlay">
+                            <span>View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Financial Data Warehouse</h3>
+                        <p class="project-description">
+                            A sophisticated financial data warehouse implementation using MySQL. Features dimensional modeling, 
+                            ETL processes, historical data tracking, and analytical views for financial reporting and 
+                            executive dashboards.
+                        </p>
+                        <div class="project-tags">
+                            <span>Data Warehouse</span>
+                            <span>Financial Analysis</span>
+                            <span>ETL Processes</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-date">March 2025</div>
+                            <a href="https://github.com/viral2103/Financial-Data-Warehouse-MySQL" class="view-project"
+                                target="_blank">
+                                View Details
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn" id="prevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dots" id="carouselDots">
+                    <!-- Dots will be added dynamically -->
+                </div>
+                <button class="carousel-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="star">※</span>
+                <span>VIRAL SHAH ™</span>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/viral-shah-80388228b/" class="social-icon" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/viral2103" class="social-icon" target="_blank"><i
+                        class="fab fa-github"></i></a>
+                <a href="mailto:shahviral500@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 Viral Shah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carousel functionality
+            const slider = document.getElementById('projectsSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+
+            let currentIndex = 0;
+            let cardWidth;
+            let cardsPerView;
+            let totalCards;
+            let totalSlides;
+
+            // Calculate how many cards can be shown at once based on screen width
+            function calculateCardsPerView() {
+                if (window.innerWidth >= 992) {
+                    return 3; // Desktop: show 3 cards
+                } else if (window.innerWidth >= 768) {
+                    return 2; // Tablet: show 2 cards
+                } else {
+                    return 1; // Mobile: show 1 card
+                }
+            }
+
+            // Initialize carousel settings
+            function initCarousel() {
+                const cards = slider.querySelectorAll('.project-card');
+                totalCards = cards.length;
+                cardsPerView = calculateCardsPerView();
+
+                // Calculate card width including gap
+                const containerWidth = slider.parentElement.clientWidth;
+                const gapWidth = 2.5 * 16; // 2.5rem gap in pixels
+                cardWidth = (containerWidth - (gapWidth * (cardsPerView - 1))) / cardsPerView;
+
+                // Set card width
+                cards.forEach(card => {
+                    card.style.flex = `0 0 ${cardWidth}px`;
+                });
+
+                // Calculate total number of slides
+                totalSlides = Math.ceil((totalCards - cardsPerView) / cardsPerView) + 1;
+
+                // Generate dots
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.dataset.slide = i;
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+
+                // Set initial state
+                updateCarouselState();
+            }
+
+            // Update carousel buttons state
+            function updateCarouselState() {
+                // Enable/disable buttons
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === totalSlides - 1;
+
+                // Update dot indicators
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                const translateX = index * cardsPerView * (cardWidth + 40); // 40px is approximately 2.5rem
+                slider.style.transform = `translateX(-${translateX}px)`;
+                updateCarouselState();
+            }
+
+            // Carousel navigation
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    goToSlide(currentIndex + 1);
+                }
+            });
+
+            // Initialize on page load
+            initCarousel();
+
+            // Reinitialize on window resize
+            window.addEventListener('resize', () => {
+                currentIndex = 0; // Reset to first slide on resize
+                initCarousel();
+                goToSlide(0);
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Add click event to project images
+            const projectImages = document.querySelectorAll('.project-image');
+            projectImages.forEach(image => {
+                image.addEventListener('click', function () {
+                    const link = this.getAttribute('onclick').replace("window.open('", "").replace("', '_blank')", "");
+                    window.open(link, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
