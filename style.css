@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 body {
@@ -254,14 +255,14 @@ header {
 }
 
 /* Column 1 items slide up */
-.excel {
+.python {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     animation-name: slideUp;
     animation-delay: 0.2s;
 }
 
-.figma {
+.data-visualization {
     grid-column: 1 / 2;
     grid-row: 2 / 4;
     animation-name: slideUp;
@@ -270,7 +271,7 @@ header {
 }
 
 /* Column 2 items slide down */
-.python {
+.mysql {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
     animation-name: slideDown;
@@ -278,7 +279,7 @@ header {
     height: 400px; /* Taller than other grid items */
 }
 
-.graphic-design {
+.cloud {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     animation-name: slideDown;
@@ -286,14 +287,14 @@ header {
 }
 
 /* Column 3 items slide up */
-.mysql {
+.powerbi {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     animation-name: slideUp;
     animation-delay: 0.2s;
 }
 
-.data-visualization {
+.graphic-design {
     grid-column: 3 / 4;
     grid-row: 2 / 4;
     animation-name: slideUp;
