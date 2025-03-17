@@ -739,34 +739,34 @@ header.animate-in {
         width: 95%;
     }
     
-    .excel {
+    .python {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-    }
-    
-    .python {
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
-        height: 250px;
     }
     
     .mysql {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        height: 250px;
+    }
+    
+    .data-visualization {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
     
-    .figma {
+    .cloud {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
         height: 250px;
     }
     
-    .graphic-design {
+    .powerbi {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
     }
     
-    .data-visualization {
+    .graphic-design {
         grid-column: 2 / 3;
         grid-row: 3 / 4;
         height: 250px;
@@ -865,7 +865,7 @@ header.animate-in {
         gap: 20px;
     }
     
-    .excel, .python, .mysql, .figma, .graphic-design, .data-visualization {
+    .python, .mysql, .powerbi, .data-visualization, .cloud, .graphic-design {
         grid-column: 1;
         grid-row: auto;
         height: 200px !important;
