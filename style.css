@@ -750,18 +750,18 @@ header.animate-in {
         height: 250px;
     }
     
-    .data-visualization {
+    .powerbi {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
     
-    .cloud {
+    .data-visualization {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
         height: 250px;
     }
     
-    .powerbi {
+    .cloud {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
     }
