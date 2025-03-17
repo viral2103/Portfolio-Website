@@ -16,7 +16,7 @@
         <header>
             <div class="logo">
                 <span class="star">※</span>
-                <span>VIRAL SHAH ™</span>
+                <span>VIRAL SHAH</span>
             </div>
             <a href="https://www.linkedin.com/in/viral-shah-80388228b/" class="linkedin-btn" target="_blank">
                 <span>LinkedIn</span>
@@ -38,10 +38,8 @@
                 <div class="text-content">
                     <h1 class="heading">Hello,<br>I'm Viral Shah</h1>
                     <p class="description">
-                        I'm a Data Analyst from Vadodara, Gujarat, passionate about transforming raw data into
-                        meaningful insights. I specialize in data analysis, visualization, and design, crafting
-                        intuitive dashboards that drive decision-making. My goal is to bridge the gap between data and
-                        business strategy, making complex information accessible and actionable.
+                        I’m Viral Shah, a Data Analyst from Vadodara, Gujarat. I specialize in data analysis, web
+                        development, and graphic designing to help businesses grow and make smarter decisions.
                     </p>
                 </div>
 
@@ -67,45 +65,45 @@
     </p>
 
     <div class="grid-container">
-        <div class="grid-item excel" onclick="openInNewTab('excel.html')">
-            <img src="Office Workspace with Team Collaboration.jpeg" alt="Excel">
-            <div class="overlay">
-                <div class="overlay-text">EXCEL</div>
-            </div>
-        </div>
-
         <div class="grid-item python" onclick="openInNewTab('python.html')">
-            <img src="Coding on Laptop.jpeg" alt="Python">
+            <img src="Coding on Laptop.jpeg" alt="python">
             <div class="overlay">
                 <div class="overlay-text">PYTHON</div>
             </div>
         </div>
 
         <div class="grid-item mysql" onclick="openInNewTab('mysql.html')">
-            <img src="Digital Binary Code Visualization.jpeg" alt="MySQL">
+            <img src="mysql.png" alt="mysql">
             <div class="overlay">
                 <div class="overlay-text">MySQL</div>
             </div>
         </div>
 
-        <div class="grid-item figma" onclick="openInNewTab('figma.html')">
-            <img src="Gradient Glass Cube.jpeg" alt="Figma">
+        <div class="grid-item powerbi" onclick="openInNewTab('powerbi.html')">
+            <img src="powerbi.png" alt="powerbi">
             <div class="overlay">
-                <div class="overlay-text">FIGMA</div>
-            </div>
-        </div>
-
-        <div class="grid-item graphic-design" onclick="openInNewTab('graphic-design.html')">
-            <img src="Vibrant Digital Artists Studio.jpeg" alt="Graphic Design">
-            <div class="overlay">
-                <div class="overlay-text">GRAPHIC<br>DESIGN</div>
+                <div class="overlay-text">Power BI</div>
             </div>
         </div>
 
         <div class="grid-item data-visualization" onclick="openInNewTab('data-visualization.html')">
-            <img src="Man Presenting Data.jpeg" alt="Data Visualization">
+            <img src="Man Presenting Data.jpeg" alt="data-visualization">
             <div class="overlay">
                 <div class="overlay-text">DATA<br>VISUALIZATION</div>
+            </div>
+        </div>
+
+        <div class="grid-item cloud" onclick="openInNewTab('#')">
+            <img src="cloud.png" alt="cloud">
+            <div class="overlay">
+                <div class="overlay-text">Cloud<br>Platform</div>
+            </div>
+        </div>
+
+        <div class="grid-item graphic-design" onclick="openInNewTab('graphic-design.html')">
+            <img src="Vibrant Digital Artists Studio.jpeg" alt="graphic-design">
+            <div class="overlay">
+                <div class="overlay-text">Graphic<br>designing</div>
             </div>
         </div>
     </div>
@@ -300,11 +298,10 @@
             </div>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/viral-shah-80388228b/" class="social-icon" target="_blank"><i
-                    class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/viral2103" class="social-icon" target="_blank"><i
-                    class="fab fa-github"></i></a>
-<!--             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a> -->
-            <a href="mailto:shahviral500@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/viral2103" class="social-icon" target="_blank"><i
+                        class="fab fa-github"></i></a>
+                <a href="mailto:shahviral500@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="footer-copyright">
                 <p>© 2025 Viral Shah. All rights reserved.</p>
@@ -394,13 +391,13 @@
         }
 
         // Wait for DOM to load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Execute fadeIn function
             fadeIn();
         });
 
         // Handle window resize events for responsive behavior
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             // If on mobile, ensure proper visibility
             if (window.innerWidth <= 768) {
                 const gridItems = document.querySelectorAll('.grid-item');
